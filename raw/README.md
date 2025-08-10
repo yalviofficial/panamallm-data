@@ -1,2 +1,0 @@
-# raw
-Carpeta para raw

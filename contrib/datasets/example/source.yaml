@@ -1,0 +1,14 @@
+name: "Constitución Política de Panamá"
+url: "https://www.gacetaoficial.gob.pa/constitución"
+license: "Open Government"
+owner: "República de Panamá"
+update_freq: "cuando hay reformas"
+fields: 
+  - "títulos"
+  - "capítulos"
+  - "artículos"
+pii: false
+notes: "Texto completo de la Constitución vigente"
+last_updated: "2024-01-01"
+format: "pdf"
+size_mb: 2.5
