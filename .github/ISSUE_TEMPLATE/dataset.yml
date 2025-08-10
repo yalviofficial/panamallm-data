@@ -1,0 +1,32 @@
+name: "Aportar datos"
+description: Sube una fuente con licencia clara para PanamaLLM
+labels: ["dataset","help wanted"]
+body:
+  - type: input
+    id: fuente
+    attributes:
+      label: "Fuente/URL oficial"
+      placeholder: "https://…"
+    validations:
+      required: true
+  - type: dropdown
+    id: licencia
+    attributes:
+      label: Licencia
+      options: ["CC-BY","CC0","Open Government","Permiso escrito adjunto"]
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: "Descripción y utilidad"
+      placeholder: "Qué contiene y por qué sirve"
+  - type: textarea
+    id: cita
+    attributes:
+      label: "Cómo citar"
+      placeholder: "Autor/Institución, año, enlace"
+  - type: textarea
+    id: adjuntos
+    attributes:
+      label: "Archivos o enlaces a ZIP/CSV/PDF"
