@@ -1,2 +1,0 @@
-# meta
-Carpeta para meta
