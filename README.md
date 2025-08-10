@@ -39,7 +39,7 @@ Consulta [`CONTRIBUTING.md`](CONTRIBUTING.md) para instrucciones detalladas sobr
 
 ## 📧 Contacto
 ¿Interesado en probar el piloto beta de PanamaLLM? 
-Contáctanos para más información sobre el proyecto.
+Contáctanos en: info@yalvi.com
 
 ## 📄 Licencias aceptadas
 Solo aceptamos datos con licencias claras:
