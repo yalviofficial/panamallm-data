@@ -1,8 +1,0 @@
-jsonschema
-pyyaml
-langdetect
-pandas
-pypdf2
-beautifulsoup4
-requests
-tqdm

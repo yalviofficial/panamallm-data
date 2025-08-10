@@ -1,0 +1,13 @@
+stages:
+  process_raw:
+    cmd: python scripts/process_raw.py
+    deps:
+      - raw/
+    outs:
+      - interim/
+  create_dataset:
+    cmd: python scripts/create_dataset.py
+    deps:
+      - interim/
+    outs:
+      - processed/

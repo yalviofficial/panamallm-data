@@ -6,3 +6,4 @@ __pycache__/
 # DVC
 /.dvc/tmp/
 /.dvc/cache/
+.env
