@@ -17,9 +17,9 @@ def load_interim_data() -> List[Dict]:
             df = pd.read_parquet(parquet_file)
             records = df.to_dict('records')
             all_data.extend(records)
-            print(f"✓ Cargado: {parquet_file.name} ({len(records)} registros)")
+            print(f"Cargado: {parquet_file.name} ({len(records)} registros)")
         except Exception as e:
-            print(f"✗ Error cargando {parquet_file}: {e}")
+            print(f"Error cargando {parquet_file}: {e}")
     
     return all_data
 
@@ -99,7 +99,7 @@ def save_datasets(splits: Dict[str, List[Dict]]):
             for item in data:
                 f.write(json.dumps(item, ensure_ascii=False) + '\n')
         
-        print(f"✓ Guardado: {output_file.name} ({len(data)} ejemplos)")
+        print(f"Guardado: {output_file.name} ({len(data)} ejemplos)")
     
     # Crear versión completa
     all_data = []
@@ -111,10 +111,10 @@ def save_datasets(splits: Dict[str, List[Dict]]):
         for item in all_data:
             f.write(json.dumps(item, ensure_ascii=False) + '\n')
     
-    print(f"✓ Dataset completo: {full_file.name} ({len(all_data)} ejemplos)")
+    print(f"Dataset completo: {full_file.name} ({len(all_data)} ejemplos)")
 
 def main():
-    print("🚀 Creando dataset PanamaLLM...")
+    print("Creando dataset PanamaLLM...")
     
     # Cargar datos intermedios
     interim_data = load_interim_data()
@@ -127,7 +127,7 @@ def main():
     
     # Combinar todos los datos
     all_data = instruction_data + qa_data
-    print(f"📊 Total de ejemplos: {len(all_data)}")
+    print(f"Total de ejemplos: {len(all_data)}")
     
     # Dividir en train/val/test
     splits = split_dataset(all_data)
@@ -135,7 +135,7 @@ def main():
     # Guardar datasets
     save_datasets(splits)
     
-    print("✅ Dataset creado exitosamente!")
+    print("Dataset creado exitosamente!")
 
 if __name__ == "__main__":
     main()

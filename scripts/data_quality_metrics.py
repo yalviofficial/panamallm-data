@@ -28,7 +28,7 @@ class DataQualityAnalyzer:
         processed_path = Path("processed")
         
         for jsonl_file in processed_path.glob("*.jsonl"):
-            print(f"📄 Analizando: {jsonl_file.name}")
+            print(f"Analizando: {jsonl_file.name}")
             
             with open(jsonl_file, 'r', encoding='utf-8') as f:
                 for line_num, line in enumerate(f, 1):
@@ -36,7 +36,7 @@ class DataQualityAnalyzer:
                         data = json.loads(line)
                         self.analyze_document(data)
                     except json.JSONDecodeError as e:
-                        print(f"  ✗ Error en línea {line_num}: {e}")
+                        print(f"  Error en línea {line_num}: {e}")
     
     def analyze_document(self, doc: Dict):
         """Analiza un documento individual"""
@@ -168,25 +168,25 @@ class DataQualityAnalyzer:
     def print_report(self, report: Dict):
         """Imprime el reporte de forma legible"""
         print("\n" + "="*60)
-        print("📊 REPORTE DE CALIDAD - PanamaLLM Dataset")
+        print("REPORTE DE CALIDAD - PanamaLLM Dataset")
         print("="*60)
-        
-        print("\n📈 RESUMEN GENERAL:")
+
+        print("\nRESUMEN GENERAL:")
         for key, value in report['summary'].items():
             print(f"  • {key.replace('_', ' ').title()}: {value:,}")
         
-        print("\n📊 DISTRIBUCIONES:")
+        print("\nDISTRIBUCIONES:")
         for dist_name, dist_data in report['distributions'].items():
             print(f"\n  {dist_name.upper()}:")
             for item, count in sorted(dist_data.items(), key=lambda x: x[1], reverse=True)[:5]:
                 print(f"    - {item}: {count}")
         
-        print("\n⭐ CALIDAD:")
+        print("\nCALIDAD:")
         for key, value in report['quality'].items():
             print(f"  • {key.replace('_', ' ').title()}: {value}")
         
         if report['issues']['datasets_with_missing_metadata']:
-            print("\n⚠️ PROBLEMAS DETECTADOS:")
+            print("\nPROBLEMAS DETECTADOS:")
             for issue in report['issues']['datasets_with_missing_metadata']:
                 print(f"  • {issue['dataset']}: Faltan {', '.join(issue['missing_fields'])}")
         
@@ -196,7 +196,7 @@ def main():
     """Función principal"""
     analyzer = DataQualityAnalyzer()
     
-    print("🔍 Iniciando análisis de calidad de datos...")
+    print("Iniciando análisis de calidad de datos...")
     
     # Analizar diferentes fuentes
     analyzer.analyze_raw_data()
@@ -214,7 +214,7 @@ def main():
     with open(report_file, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
     
-    print(f"\n💾 Reporte guardado en: {report_file}")
+    print(f"\nReporte guardado en: {report_file}")
 
 if __name__ == "__main__":
     main()

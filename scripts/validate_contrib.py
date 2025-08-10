@@ -32,7 +32,7 @@ for meta in glob.glob("contrib/datasets/*/source.yaml"):
   required = ["name","url","license","owner"]
   missing = [k for k in required if k not in (y or {})]
   if missing:
-    print(f"✗ {meta}: faltan campos {missing}")
+    print(f"{meta}: faltan campos {missing}")
     errors += 1
 
 # Validar JSONL de samples y evals
@@ -55,11 +55,11 @@ for p in paths:
           if not validate_panama_spanish(txt):
             print(f"! {p}:{i}: falta jerga panameña")
       except (json.JSONDecodeError, ValidationError) as e:
-        print(f"✗ {p}:{i}: {e}")
+        print(f"{p}:{i}: {e}")
         errors += 1
 
 if errors:
   print(f"\nFALLÓ validación: {errors} problema(s)")
   sys.exit(1)
 else:
-  print("✓ Validaciones OK")
+  print("Validaciones OK")

@@ -68,7 +68,7 @@ def process_pdf_file(pdf_path: Path) -> Dict:
             **metadata
         }
     except Exception as e:
-        print(f"✗ Error procesando PDF {pdf_path}: {e}")
+        print(f"Error procesando PDF {pdf_path}: {e}")
         return None
 
 def process_html_file(html_path: Path) -> Dict:
@@ -92,7 +92,7 @@ def process_html_file(html_path: Path) -> Dict:
             **metadata
         }
     except Exception as e:
-        print(f"✗ Error procesando HTML {html_path}: {e}")
+        print(f"Error procesando HTML {html_path}: {e}")
         return None
 
 def process_csv_file(csv_path: Path) -> List[Dict]:
@@ -123,7 +123,7 @@ def process_csv_file(csv_path: Path) -> List[Dict]:
         
         return records
     except Exception as e:
-        print(f"✗ Error procesando CSV {csv_path}: {e}")
+        print(f"Error procesando CSV {csv_path}: {e}")
         return []
 
 def process_directory(input_dir: Path, output_dir: Path):
@@ -134,7 +134,7 @@ def process_directory(input_dir: Path, output_dir: Path):
     
     # Procesar PDFs
     pdf_files = list(input_dir.glob("*.pdf"))
-    print(f"📄 Procesando {len(pdf_files)} archivos PDF...")
+    print(f"Procesando {len(pdf_files)} archivos PDF...")
     for pdf_path in tqdm(pdf_files):
         result = process_pdf_file(pdf_path)
         if result:
@@ -142,7 +142,7 @@ def process_directory(input_dir: Path, output_dir: Path):
     
     # Procesar HTMLs
     html_files = list(input_dir.glob("*.html")) + list(input_dir.glob("*.htm"))
-    print(f"🌐 Procesando {len(html_files)} archivos HTML...")
+    print(f"Procesando {len(html_files)} archivos HTML...")
     for html_path in tqdm(html_files):
         result = process_html_file(html_path)
         if result:
@@ -150,7 +150,7 @@ def process_directory(input_dir: Path, output_dir: Path):
     
     # Procesar CSVs
     csv_files = list(input_dir.glob("*.csv"))
-    print(f"📊 Procesando {len(csv_files)} archivos CSV...")
+    print(f"Procesando {len(csv_files)} archivos CSV...")
     for csv_path in tqdm(csv_files):
         results = process_csv_file(csv_path)
         all_records.extend(results)
@@ -160,13 +160,13 @@ def process_directory(input_dir: Path, output_dir: Path):
         df = pd.DataFrame(all_records)
         output_file = output_dir / f"{input_dir.name}_processed.parquet"
         df.to_parquet(output_file, engine='pyarrow')
-        print(f"✓ Guardado: {output_file} ({len(all_records)} registros)")
+        print(f"Guardado: {output_file} ({len(all_records)} registros)")
     
     return all_records
 
 def main():
     """Pipeline principal"""
-    print("🚀 Iniciando procesamiento de datos raw...")
+    print("Iniciando procesamiento de datos raw...")
     
     raw_dirs = {
         'gov': Path('raw/gov'),
@@ -178,14 +178,14 @@ def main():
     
     for category, raw_path in raw_dirs.items():
         if raw_path.exists() and any(raw_path.iterdir()):
-            print(f"\n📁 Procesando categoría: {category}")
+            print(f"\nProcesando categoría: {category}")
             interim_path = Path('interim') / category
             records = process_directory(raw_path, interim_path)
             total_processed += len(records)
         else:
-            print(f"⚠️ Directorio vacío o no existe: {raw_path}")
+            print(f"Directorio vacío o no existe: {raw_path}")
     
-    print(f"\n✅ Procesamiento completado: {total_processed} documentos procesados")
+    print(f"\nProcesamiento completado: {total_processed} documentos procesados")
 
 if __name__ == "__main__":
     main()
