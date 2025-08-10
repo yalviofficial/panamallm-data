@@ -1,4 +1,4 @@
 [core]
-    remote = storage
-['remote "storage"']
-    url = s3://panamallm-data
+    autostage = true
+['remote "local"']
+    url = /tmp/dvc-storage
