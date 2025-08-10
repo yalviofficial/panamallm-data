@@ -14,6 +14,12 @@ Gracias por aportar. Hay 3 formas principales:
 - Ejecuta `python scripts/validate_contrib.py` y corrige errores.
 - Abre un Pull Request usando la plantilla.
 
+## Fuentes prioritarias de Panamá
+- Gaceta Oficial: https://www.gacetaoficial.gob.pa/
+- Datos Abiertos: https://www.datosabiertos.gob.pa/
+- ACP: https://pancanal.com/
+- INEC: https://www.inec.gob.pa/
+
 ## Esquema JSONL para ejemplos instruct
 Cada línea un objeto:
 ```json

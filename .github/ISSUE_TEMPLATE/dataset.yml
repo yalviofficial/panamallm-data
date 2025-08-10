@@ -30,3 +30,6 @@ body:
     id: adjuntos
     attributes:
       label: "Archivos o enlaces a ZIP/CSV/PDF"
+      placeholder: "Enlaces a archivos o documentación adicional"
+    validations:
+      required: false
