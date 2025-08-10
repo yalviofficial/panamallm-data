@@ -38,8 +38,8 @@ Consulta [`CONTRIBUTING.md`](CONTRIBUTING.md) para instrucciones detalladas sobr
 - Archivos históricos digitalizados
 
 ## 📧 Contacto
-¿Interesado en probar el piloto beta de PanamaLLM? 
-Contáctanos en: info@yalvi.com
+¿Interesado en probar el piloto beta de PanamaLLM?
+Contáctanos en: contacto@panamallm.ai
 
 ## 📄 Licencias aceptadas
 Solo aceptamos datos con licencias claras:
