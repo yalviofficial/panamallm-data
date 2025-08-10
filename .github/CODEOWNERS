@@ -1,2 +1,4 @@
-# Ajusta usuarios/equipos que revisan contribuciones de datos
-# Ejemplo: @PanamaLLM/data-team
+# Revisores por defecto
+* @yalviofficial
+# Puedes añadir equipos, por ejemplo:
+# contrib/datasets/ @PanamaLLM/data-team

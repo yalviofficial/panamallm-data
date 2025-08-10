@@ -50,8 +50,7 @@ for p in paths:
         errors += 1
 
 if errors:
-  print(f"
-FALLÓ validación: {errors} problema(s)")
+  print(f"\nFALLÓ validación: {errors} problema(s)")
   sys.exit(1)
 else:
   print("✓ Validaciones OK")
