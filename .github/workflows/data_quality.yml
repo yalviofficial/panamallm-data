@@ -1,0 +1,23 @@
+name: data-quality
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Cada domingo
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Run quality analysis
+        run: python scripts/data_quality_metrics.py
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        with:
+          name: quality-report
+          path: meta/quality_report.json

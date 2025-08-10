@@ -3,6 +3,13 @@ import json, sys, glob, yaml
 from jsonschema import validate, ValidationError
 from langdetect import detect
 
+PANAMA_TERMS = ['vaina', 'chévere', 'plena', 'pelaos', 'juega vivo']
+
+def validate_panama_spanish(text):
+    """Valida que el texto tenga elementos del español panameño"""
+    has_panama_terms = any(term in text.lower() for term in PANAMA_TERMS)
+    return has_panama_terms
+
 DATASET_SCHEMA = {
   "type": "object",
   "properties": {
@@ -45,6 +52,8 @@ for p in paths:
               print(f"! {p}:{i}: idioma detectado {lang} (esperado 'es')")
           except Exception:
             pass
+          if not validate_panama_spanish(txt):
+            print(f"! {p}:{i}: falta jerga panameña")
       except (json.JSONDecodeError, ValidationError) as e:
         print(f"✗ {p}:{i}: {e}")
         errors += 1
