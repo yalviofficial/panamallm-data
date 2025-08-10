@@ -9,3 +9,5 @@ Repositorio de **datos** y **contribuciones** para entrenar PanamaLLM.
 - `scripts/` validaciones y pipelines
 
 Consulta `CONTRIBUTING.md` para aportar.
+
+  # agrega un cambio trivial
